@@ -1,4 +1,4 @@
-package com.kelaniya.uni;
+package com.kelaniya.uni.V1;
 //hello world
 public class helloworld {
     public static void main(String[] args) {
