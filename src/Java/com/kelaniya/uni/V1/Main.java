@@ -1,6 +1,6 @@
 package com.kelaniya.uni.V1;
 //hello world
-public class helloworld {
+public class Main {
     public static void main(String[] args) {
 
         System.out.println(" Hello world....!");
