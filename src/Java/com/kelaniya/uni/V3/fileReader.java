@@ -1,22 +1,23 @@
-package com.kelaniya.uni.V3;
+package com.kelaniya.uni.v3;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
-public class fileReader {
+//this class name will be changed
+public class FileReader {
 
-    public static List<Double> getNumbers() throws IOException {
-        //reding lineas from a file
-        List<String> lines = Files.readAllLines(
-                Paths.get("C:\\Users\\HP PRO B0OK 450 G7\\Desktop\\my Projects\\Github\\calculator\\Numbers.txt")
+    public Double[] getNumbers() throws IOException { //will change the method signature too..
+        //read the numbers text file
+        List<String> numbersStrs = Files.readAllLines(
+                Paths.get("/Users/hasinisamarathunga/Desktop/calculator/numbers.txt")
         );
-        //Adding readed lines to Separate List
-        List<Double> numbers = new ArrayList<>();
-        numbers.add(0, Double.parseDouble(lines.get(0)));
-        numbers.add(1, Double.parseDouble((lines.get(1))));
-        return numbers;
+
+        double number1 = Double.parseDouble(numbersStrs.get(0));
+        double number2 = Double.parseDouble(numbersStrs.get(1));
+
+        return new Double[]{number1, number2};
     }
+
 }

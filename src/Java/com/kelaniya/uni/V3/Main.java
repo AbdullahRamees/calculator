@@ -1,37 +1,44 @@
-package com.kelaniya.uni.V3;
+package com.kelaniya.uni.v3;
 
-import com.kelaniya.uni.V3.Oparations.addOperation;
-import com.kelaniya.uni.V3.Oparations.muloperation;
-import com.kelaniya.uni.V3.Oparations.subOperation;
+import com.kelaniya.uni.v3.operation.AddOperation;
+import com.kelaniya.uni.v3.operation.MulOperation;
+import com.kelaniya.uni.v3.operation.SubOperation;
 
 import java.io.IOException;
-import java.util.List;
-
 
 public class Main {
-    public static void main(String[] args) throws IOException {
 
-        commandlineInputs inputs = new commandlineInputs(args);
-        String userArgs = inputs.getOperator();
+    //Refactoring the code
+    //Main class is the coordinator now...
+    public static void main(String[] args) throws IOException { //kinda wrong!
 
-        fileReader Filereader = new fileReader();
-        List<Double> numbers = fileReader.getNumbers();
+        CommandLineInputs inputs = new CommandLineInputs(args);
+        String operator = inputs.getOperator();
 
-        //operations
-        Double result = 0.00;
+        FileReader fileReader = new FileReader();
+        Double[] numbers = fileReader.getNumbers();
+        Double number1 = numbers[0];
+        Double number2 = numbers[1];
 
-        if ("add".equals(userArgs)) {
-           addOperation addOperation = new addOperation();
-           result =addOperation = addOperation.execute(numbers);
-        } else if ("sub".equals(userArgs)) {
-            subOperation subOperation = new subOperation();
-            result =subOperation = subOperation.execute(numbers);
-        } else if ("mul".equals(userArgs)) {
-            muloperation muloperation = new muloperation();
-            result =muloperation = muloperation.execute(numbers);
+        double result = 0;
+
+        //or use a if else statement
+        switch (operator) {
+            case "add":
+                AddOperation addOperation = new AddOperation();
+                result = addOperation.execute(numbers);
+                break;
+            case "sub":
+                SubOperation subOperation = new SubOperation();
+                result = subOperation.execute(numbers);
+                break;
+            case "mul":
+                MulOperation mulOperation = new MulOperation();
+                result = mulOperation.execute(numbers);
+                break;
         }
 
-        //Printing Results
-        System.out.println("the result is " + result);
+        System.out.println("The result is " + result);
+
     }
 }

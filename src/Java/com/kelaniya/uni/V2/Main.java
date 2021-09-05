@@ -1,45 +1,51 @@
-package com.kelaniya.uni.V2;
+package com.kelaniya.uni.v2;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.List;
 
-
 public class Main {
+    //SRP Violated
+    //SOLID PRINCIPLES --> ALL THE SOLID PRINCIPLES ARE VIOLATED HERE!!!
     public static void main(String[] args) throws IOException {
-        //make sure validate the argument before using
+
+        //Make sure to validate the arguments before using...
         if (args.length == 0) {
-            System.out.print("please provide a operation as a argument ");
+            System.out.println("Please provide the operation as an argument");
             return;
         }
-        String userArgs = args[0];
-        if (!("add".equals(userArgs) || "sub".equals(userArgs) || "mul".equals(userArgs))) {
-            System.out.println("please provide Add, sub or mul as operator Argument");
+
+        String operator = args[0];
+
+        if (!(operator.equals("add") || operator.equals("sub") || operator.equals("mul"))) {
+            System.out.println("Please provide add,sub or mul as the operator argument");
             return;
         }
-        //reading lines from a file
-        List<String> lines = Files.readAllLines(
-                Paths.get("C:\\Users\\HP PRO B0OK 450 G7\\Desktop\\my Projects\\Github\\calculator\\Numbers.txt")
+
+        //read the numbers text file
+        List<String> numbersStrs = Files.readAllLines(
+                Paths.get("/Users/hasinisamarathunga/Desktop/calculator/numbers.txt")
         );
-        //Adding readed lines to Separate List
-        List<Double> numbers = new ArrayList<>();
-        numbers.add(0, Double.parseDouble(lines.get(0)));
-        numbers.add(1, Double.parseDouble((lines.get(1))));
 
-        //operations
-        Double result = 0.00;
+        double number1 = Double.parseDouble(numbersStrs.get(0));
+        double number2 = Double.parseDouble(numbersStrs.get(1));
 
-        if ("add".equals(userArgs)) {
-            result = numbers.get(0) + numbers.get(1);
-        } else if ("sub".equals(userArgs)) {
-            result = numbers.get(0) - numbers.get(1);
-        } else if ("mul".equals(userArgs)) {
-            result = numbers.get(0) * numbers.get(1);
+        double result = 0;
+
+        switch (operator) {
+            case "add":
+                result = number1 + number2;
+                break;
+            case "sub":
+                result = number1 - number2;
+                break;
+            case "mul":
+                result = number1 * number2;
+                break;
         }
 
-        //Printing Results
-        System.out.println("the result is " + result);
+        System.out.println("The result is " + result);
+
     }
 }
