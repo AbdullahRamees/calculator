@@ -1,6 +1,6 @@
 package com.kelaniya.uni.v4.operation;
 // abstarct class of interface class
-public interface class Operation{
+public interface class Operation {
    //interface class is better for This situation
     //Animal. dog,catb .... Animal -> abstarct when common proparties share with child classes it is aabstract class E.g: Age
     // -> sharabale properties Age preferance

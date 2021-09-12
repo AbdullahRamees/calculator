@@ -1,8 +1,8 @@
-package com.kelaniya.uni.v4;
+package com.kelaniya.uni.V4;
 
-import com.kelaniya.uni.v4.operation.AddOperation;
-import com.kelaniya.uni.v4.operation.MulOperation;
-import com.kelaniya.uni.v4.operation.SubOperation;
+import com.kelaniya.uni.V4.operation.AddOperation;
+import com.kelaniya.uni.V4.operation.MulOperation;
+import com.kelaniya.uni.V4.operation.SubOperation;
 
 import java.io.IOException;
 
@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) throws IOException { //kinda wrong!
 
         CommandLineInputs inputs = new CommandLineInputs(args);
-        String operator = inputs.getOperator();
+        String operator = inp
 
         FileReader fileReader = new FileReader();
         Double[] numbers = fileReader.getNumbers();
@@ -29,7 +29,7 @@ public class Main {
         double result = operationperation.execute(numbers);
 
        UI ui = new UI();
-       ui.showMessage("The result is "+ result)
+       ui.showMessage("The result is "+ result);
 
     }
 }
