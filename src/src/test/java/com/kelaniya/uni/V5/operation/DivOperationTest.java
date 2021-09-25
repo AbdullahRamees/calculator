@@ -17,11 +17,16 @@ public class DivOperationTest {
     }
 
     @Test
-    public void  should_not_divide_by_zero() {
+    public void  should_not_divide_by_zero() throws InvalidOperationException {
         AddOperation addOperation = new AddOperation();
         double result = addOperation.execute(new double[]{5.0, 0.0});
-        assertThrows(InvalidOperationException.class);
+        assertThrows(InvalidOperationException.class, () -> {
+            divoperation.execute(new Double[] {6.0,0.0});
+        });
     }
-
+    // we  don't write unite test
+    //main method
+    //database connections and read write
+    //
 
 }
