@@ -8,11 +8,16 @@ import java.util.List;
 
 public class FileNumberRepository implements  NumberRepository{
 
-    public Double[] getNumbers() throws IOException { //will change the method signature too..
+    public Double[] getNumbers() throws NumberRepositoryExeption { //will change the method signature too..
         //read the numbers text file
-        List<String> numbersStrs = Files.readAllLines(
-                Paths.get("/Users/hasinisamarathunga/Desktop/calculator/numbers.txt")
-        );
+        List<String> numbersStrs = null;
+        try {
+            numbersStrs = Files.readAllLines(
+                    Paths.get("/Users/abdullah/Desktop/calculator/numbers.txt")
+            );
+        } catch (IOException e) {
+            throw new NumberRepositoryExeption(e,"Couldn't read the text file");
+        }
 
         double number1 = Double.parseDouble(numbersStrs.get(0));
         double number2 = Double.parseDouble(numbersStrs.get(1));

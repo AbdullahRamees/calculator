@@ -7,6 +7,6 @@ import static org.hamcrest.Matchers.*;
 
 public class CalculatorAppTest {
 
-    
+
 
 }
